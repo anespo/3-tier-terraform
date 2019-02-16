@@ -22,7 +22,7 @@ coreos:
         Requires=app1.service
         Requires=app2.service
         [Service]
-        ExecStart=/usr/bin/docker run -p 80:80 --name nginx --link app1:app1 --volumes-from app1:ro --link app2:app2 --volumes-from app2:ro lbracken/docker-example-nginx 
+        ExecStart=/usr/bin/docker run -p 80:80 --name nginx --link app1:app1 --volumes-from app1:ro --link app2:app2 --volumes-from app2:ro tony/docker-example-nginx 
         ExecStop=/usr/bin/docker stop nginx
         Restart=always
         RestartSec=10
@@ -35,7 +35,7 @@ coreos:
         Description=Starts App1 Service
         Requires=mongo.service
         [Service]
-        ExecStart=/usr/bin/docker run -P --name app1 lbracken/docker-example-app1
+        ExecStart=/usr/bin/docker run -P --name app1 tony/docker-example-app1
         ExecStop=/usr/bin/docker stop app1
         Restart=always
         RestartSec=10
@@ -48,7 +48,7 @@ coreos:
         Description=Starts App2 Service
         Requires=mongo.service
         [Service]
-        ExecStart=/usr/bin/docker run -P --name app2 --link mongo:db lbracken/docker-example-app2
+        ExecStart=/usr/bin/docker run -P --name app2 --link mongo:db tony/docker-example-app2
         ExecStop=/usr/bin/docker stop app2
         Restart=always
         RestartSec=10

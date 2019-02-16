@@ -34,7 +34,7 @@ variable "public_key_path" {
 
 # name of the key to be used
 variable "key_name" {
-  default = "guilherme-ssh-key"
+  default = "tony-ssh-key"
 }
 
 # EC2 machine instance type 
